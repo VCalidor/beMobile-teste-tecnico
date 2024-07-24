@@ -1,12 +1,18 @@
 import { Header } from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-
   return (
-    <>
-      <Header/>
-    </>
-  )
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "rgba(240, 240, 240, 1)",
+        fontFamily: "Roboto",
+      }}
+    >
+      <Header />
+    </div>
+  );
 }
 
-export default App
+export default App;
