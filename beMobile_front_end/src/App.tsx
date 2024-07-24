@@ -8,11 +8,39 @@ import searchIcon from "./assets/searchIcon.png";
 import { Employee } from "./interfaces";
 
 function App() {
+  const [allEmployees, setAllEmployees] = useState<Employee[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
+  const [searchInput, setSearchInput] = useState<string>("");
+  const [debouncedSearchInput, setDebouncedSearchInput] = useState(searchInput);
 
   useEffect(() => {
-    getEmployees(setEmployees);
+    getEmployees(setAllEmployees, setEmployees);
   }, []);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchInput(searchInput);
+    }, 1000);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchInput]);
+
+  useEffect(() => {
+    searchEmployees();  
+  }, [debouncedSearchInput]);
+
+  const searchEmployees = () => {
+    let filteredEmployees = [];
+    filteredEmployees = allEmployees.filter((employee) => {
+      if(employee.name.toLowerCase().includes(debouncedSearchInput.toLowerCase()) || employee.job.toLowerCase().includes(debouncedSearchInput.toLowerCase())) {
+          return employee;
+      }
+    })
+
+    setEmployees(filteredEmployees);
+  };
 
   return (
     <div
@@ -35,18 +63,20 @@ function App() {
               border: "1px solid rgba(223, 223, 223, 1)",
               minHeight: "50px",
               width: "30%",
-              minWidth: "250px",
+              minWidth: "335px",
             }}
           >
             <input
               type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Pesquisar"
               style={{ border: "none", outline: "none" }}
             />
             <Image src={searchIcon} height="18"></Image>
           </div>
         </div>
-        <TableComponent employees={employees}/>
+        <TableComponent employees={employees} />
       </div>
     </div>
   );
