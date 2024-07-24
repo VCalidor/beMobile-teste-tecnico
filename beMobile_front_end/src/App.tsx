@@ -1,9 +1,19 @@
-import { Header } from "./components/Header";
-import { Image } from "react-bootstrap";
-import searchIcon from "./assets/searchIcon.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Header } from "./components/Header";
+import { TableComponent } from "./components/TableComponent";
+import { getEmployees } from "./api";
+import Image from "react-bootstrap/Image";
+import { useEffect, useState } from "react";
+import searchIcon from "./assets/searchIcon.png";
+import { Employee } from "./interfaces";
 
 function App() {
+  const [employees, setEmployees] = useState<Employee[]>([]);
+
+  useEffect(() => {
+    getEmployees(setEmployees);
+  }, []);
+
   return (
     <div
       style={{
@@ -14,8 +24,10 @@ function App() {
     >
       <Header />
       <div style={{ paddingLeft: "35px", paddingRight: "35px" }}>
-        <header className="d-flex align-items-center justify-content-between flex-wrap">
-          <h4 style={{ fontWeight: "600" }}>Funcionários</h4>
+        <div className="d-flex align-items-center justify-content-between flex-wrap align-content-center mb-4">
+          <h4 style={{ fontWeight: "600", marginRight: "20px" }}>
+            Funcionários
+          </h4>
           <div
             className="d-flex form-control align-items-center justify-content-between"
             style={{
@@ -33,7 +45,8 @@ function App() {
             />
             <Image src={searchIcon} height="18"></Image>
           </div>
-        </header>
+        </div>
+        <TableComponent employees={employees}/>
       </div>
     </div>
   );
