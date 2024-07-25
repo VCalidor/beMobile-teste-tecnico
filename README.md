@@ -11,22 +11,30 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 1. **Clone o repositório**
 
-git clone https://github.com/vcalidor/beMobile-teste-tecnico
+- git clone https://github.com/vcalidor/bemobile-teste-tecnico
 
 2. **Navegue até a pasta do projeto**
 
 - cd beMobile-teste-tecnico
 
-3. **Instale as dependências**
+3. **Instale as dependências e rode o projeto**
+
+**Linux/Mac**
 
 - npm install
 
+- npm start
+  
+**Windows**
+
+- Abra a pasta com o Git Bash
+
+- sh install.sh
+
+- sh start.sh
+
 ## ☕ Usando BeMobile Teste tecnico Front-End
 
-1. **Rode o projeto**
-
-- npm start
-
-2. **Acesse a aplicação**
+**Acesse a aplicação**
 
 - http://localhost:{porta que você está utilizando, provavelmente a 5173}/
