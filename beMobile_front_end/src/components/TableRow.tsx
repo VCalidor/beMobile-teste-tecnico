@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
 import { Employee } from "../interfaces";
 import { useState } from "react";
-import { Table } from "react-bootstrap";
 
 export const TableRow = ({
   employee,
@@ -15,7 +14,7 @@ export const TableRow = ({
 
   return (
     <>
-      <tr id={employee.id}>
+      <tr >
         <td valign="middle">
           <Image
             src={employee.image}

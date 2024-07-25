@@ -29,10 +29,10 @@ export const TableComponent = ({
             <th className="custom-theader custom-theader-right">
               <svg width="10px" height="10px">
                 <ellipse
-                  rx="3"
-                  ry="3"
-                  cx="3"
-                  cy="3"
+                  rx="4"
+                  ry="4"
+                  cx="4"
+                  cy="4"
                   style={{ fill: "white" }}
                 />
               </svg>
@@ -49,7 +49,7 @@ export const TableComponent = ({
       <tbody style={{ textAlign: "center" }}>
         {employees &&
           employees.map((employee) => (
-            <TableRow employee={employee} isMobile={isMobile}/>
+            <TableRow employee={employee} isMobile={isMobile} key={employee.id}/>
           ))}
       </tbody>
     </Table>
