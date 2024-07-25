@@ -30,11 +30,21 @@ export const TableRow = ({
           <>
             <td valign="middle">{employee.job}</td>
             <td valign="middle">{employee.admission_date}</td>
-            <td valign="middle">{employee.phone}</td>
+            <td valign="middle">
+              {[
+                employee.phone[1],
+                " (",
+                employee.phone[2],
+                ") ",
+                employee.phone[3],
+                "-",
+                employee.phone[4],
+              ].join("")}
+            </td>
           </>
         )}
       </tr>
-      {(isOpen && isMobile) && (
+      {isOpen && isMobile && (
         <>
           <tr>
             <th scope="row">Cargo</th>
@@ -46,7 +56,17 @@ export const TableRow = ({
           </tr>
           <tr>
             <th scope="row">Telephone</th>
-            <td colSpan={2}>{employee.phone}</td>
+            <td colSpan={2}>
+              {[
+                employee.phone[1],
+                " (",
+                employee.phone[2],
+                ") ",
+                employee.phone[3],
+                "-",
+                employee.phone[4],
+              ].join("")}
+            </td>
           </tr>
         </>
       )}

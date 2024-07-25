@@ -31,16 +31,24 @@ function App() {
   }, [searchInput]);
 
   useEffect(() => {
-    searchEmployees();  
+    searchEmployees();
   }, [debouncedSearchInput]);
 
   const searchEmployees = () => {
     let filteredEmployees = [];
     filteredEmployees = allEmployees.filter((employee) => {
-      if(employee.name.toLowerCase().includes(debouncedSearchInput.toLowerCase()) || employee.job.toLowerCase().includes(debouncedSearchInput.toLowerCase())) {
-          return employee;
+      if (
+        employee.name
+          .toLowerCase()
+          .includes(debouncedSearchInput.toLowerCase()) ||
+        employee.job
+          .toLowerCase()
+          .includes(debouncedSearchInput.toLowerCase()) ||
+        employee.phone[0].includes(debouncedSearchInput)
+      ) {
+        return employee;
       }
-    })
+    });
 
     setEmployees(filteredEmployees);
   };
@@ -79,7 +87,10 @@ function App() {
             <Image src={searchIcon} height="18"></Image>
           </div>
         </div>
-        <TableComponent employees={employees} isMobile={width <= 570 ? true : false}/>
+        <TableComponent
+          employees={employees}
+          isMobile={width <= 570 ? true : false}
+        />
       </div>
     </div>
   );
