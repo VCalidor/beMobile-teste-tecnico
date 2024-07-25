@@ -1,0 +1,8 @@
+{
+  "name": "bemobile-teste-tecnico",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "./install.sh",
+    "start": "./start.sh"
+  }
+}

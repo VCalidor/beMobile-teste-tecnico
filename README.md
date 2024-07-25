@@ -1,27 +1,32 @@
-# Initial Setup
+# BeMobile Teste tecnico Front-End
 
-To get started with the beMobile technical test, follow these steps:
+## 💻 Pré-requisitos
 
-1. Clone the repository to your local machine:
-  ```
-  git clone https://github.com/calidor/beMobile-teste-tecnico.git
-  ```
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-2. Navigate to the project directory:
-  ```
-  cd beMobile-teste-tecnico
-  ```
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-3. Install the required dependencies:
-  ```
-  npm install
-  ```
+## 🚀 Instalando o projeto
 
-4. Start the application:
-  ```
-  npm run dev
-  ```
+1. **Clone o repositório**
 
-5. Open your browser and visit `http://localhost:3000` to view the application.
+git clone https://github.com/vcalidor/beMobile-teste-tecnico
 
-That's it! You have completed the initial setup for the beMobile technical test. Happy coding!
+2. **Navegue até a pasta do projeto**
+
+- cd beMobile-teste-tecnico
+
+3. **Instale as dependências**
+
+- npm install
+
+## ☕ Usando BeMobile Teste tecnico Front-End
+
+1. **Rode o projeto**
+
+- npm start
+
+2. **Acesse a aplicação**
+
+- http://localhost:{porta que você está utilizando, provavelmente a 5173}/
