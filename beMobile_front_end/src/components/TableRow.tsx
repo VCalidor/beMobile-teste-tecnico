@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import arrowIcon from "../assets/arrowIcon.png";
 import { Image } from "react-bootstrap";
 import { Employee } from "../interfaces";
 import { useState } from "react";
@@ -14,7 +15,7 @@ export const TableRow = ({
 
   return (
     <>
-      <tr >
+      <tr>
         <td valign="middle">
           <Image
             src={employee.image}
@@ -24,7 +25,13 @@ export const TableRow = ({
         </td>
         <td valign="middle">{employee.name}</td>
         {isMobile ? (
-          <td onClick={() => setIsOpen(!isOpen)}>abrir</td>
+          <td onClick={() => setIsOpen(!isOpen)} valign="middle">
+            <Image
+              src={arrowIcon}
+              height={"10px"}
+              style={{ transform: isOpen ? "scaleY(-1)" : "" }}
+            />
+          </td>
         ) : (
           <>
             <td valign="middle">{employee.job}</td>
