@@ -6,12 +6,15 @@ import Image from "react-bootstrap/Image";
 import { useEffect, useState } from "react";
 import searchIcon from "./assets/searchIcon.png";
 import { Employee } from "./interfaces";
+import useWindowSize from "./hooks/useWindowsSize";
 
 function App() {
   const [allEmployees, setAllEmployees] = useState<Employee[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [searchInput, setSearchInput] = useState<string>("");
   const [debouncedSearchInput, setDebouncedSearchInput] = useState(searchInput);
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     getEmployees(setAllEmployees, setEmployees);
@@ -63,7 +66,7 @@ function App() {
               border: "1px solid rgba(223, 223, 223, 1)",
               minHeight: "50px",
               width: "30%",
-              minWidth: "335px",
+              minWidth: "250px",
             }}
           >
             <input
@@ -71,12 +74,12 @@ function App() {
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Pesquisar"
-              style={{ border: "none", outline: "none" }}
+              style={{ border: "none", outline: "none", width: "100%" }}
             />
             <Image src={searchIcon} height="18"></Image>
           </div>
         </div>
-        <TableComponent employees={employees} />
+        <TableComponent employees={employees} isMobile={width <= 570 ? true : false}/>
       </div>
     </div>
   );

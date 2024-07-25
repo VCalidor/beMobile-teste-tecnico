@@ -3,7 +3,6 @@
   text-align: center;
   height: 50px;
   font-size: larger;
-  padding: 50;
 }
 
 .custom-theader {
@@ -16,5 +15,17 @@
 }
 
 .custom-theader-right {
-  border-radius: 0 10px 0 0 
+  border-radius: 0 10px 0 0
+}
+
+
+@media (max-width: 570px) {
+  .custom-thead {
+    font-size: medium;
+  }
+
+  .form-control {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
 }

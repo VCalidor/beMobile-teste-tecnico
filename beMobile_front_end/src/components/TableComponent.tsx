@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/App.css";
 import Table from "react-bootstrap/Table";
 import { TableRow } from "./TableRow";
-import "../styles/Table.css";
 
 interface Employee {
   id: string;
@@ -12,22 +12,44 @@ interface Employee {
   phone: string;
 }
 
-export const TableComponent = ({ employees }: { employees: Employee[] }) => {
+export const TableComponent = ({
+  employees,
+  isMobile,
+}: {
+  employees: Employee[];
+  isMobile: boolean;
+}) => {
   return (
     <Table className="shadow-sm">
       <thead>
         <tr className="custom-thead">
           <th className="custom-theader custom-theader-left">Foto</th>
           <th className="custom-theader">Nome</th>
-          <th className="custom-theader">Cargo</th>
-          <th className="custom-theader">Data de admissão</th>
-          <th className="custom-theader custom-theader-right">Telefone</th>
+          {isMobile ? (
+            <th className="custom-theader custom-theader-right">
+              <svg width="10px" height="10px">
+                <ellipse
+                  rx="3"
+                  ry="3"
+                  cx="3"
+                  cy="3"
+                  style={{ fill: "white" }}
+                />
+              </svg>
+            </th>
+          ) : (
+            <>
+              <th className="custom-theader">Cargo</th>
+              <th className="custom-theader">Data de admissão</th>
+              <th className="custom-theader custom-theader-right">Telefone</th>
+            </>
+          )}
         </tr>
       </thead>
       <tbody style={{ textAlign: "center" }}>
         {employees &&
           employees.map((employee) => (
-            <TableRow key={employee.id} employee={employee} />
+            <TableRow employee={employee} isMobile={isMobile}/>
           ))}
       </tbody>
     </Table>
