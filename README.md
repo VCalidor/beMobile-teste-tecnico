@@ -11,7 +11,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 1. **Clone o repositório**
 
-- git clone https://github.com/vcalidor/beMobile-teste-tecnico
+- git clone https://github.com/vcalidor/bemobile-teste-tecnico
 
 2. **Navegue até a pasta do projeto**
 
